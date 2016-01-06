@@ -3,7 +3,7 @@
 Different means to stitch sewing patterns (or any pdf file) delivered in single sheets to a whole plan (file).
 
 ## Prerequisites
-* python 
+* Python (tested with 2.7)
 * PyPDF2 with 
         `pip install pypdf2`
         ( https://pypi.python.org/pypi/PyPDF2/1.25.1 )
@@ -18,3 +18,4 @@ number):
 6, 7, 8, 9
 10, 11, 12, 13```
 
+![pdf_stitcher flow](https://smidgeonpigeon.files.wordpress.com/2016/01/pdf_stitcher_flow1.png)
