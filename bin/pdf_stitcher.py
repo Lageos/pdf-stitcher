@@ -5,6 +5,7 @@ import PyPDF2
 import csv
 import sys
 
+__version__ = '0.1'
 # --- Pattern Stitcher ---
 
 def addright(page, right_page, tx=0):
@@ -15,6 +16,7 @@ def addright(page, right_page, tx=0):
 
 def main():
     print('## Pattern Stitcher ##')
+    print('Version:', __version__)
     tx = 0
     ty = 0
     with open(sys.argv[1], 'rb') as input:
@@ -39,13 +41,10 @@ def main():
             print("Stitching lines of pages ...")
             first_line = True
             for row in reversed(rows):
-                print('Row: ', row.mediaBox)
                 if first_line is True:
                     output = rows[-1]
-                    print('Output: ', output.mediaBox)
                     first_line = False
                 else:
-                    print('Output: ', output.mediaBox)
                     output.mergeTranslatedPage(row, 0, output.mediaBox[3] + ty, expand=True)
 
         print("Saving new file...")
