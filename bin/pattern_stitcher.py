@@ -1,9 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from __future__ import print_function, division
+from __future__ import print_function, division, with_statement
 import PyPDF2
-# ºw
-# import csv
+import csv
 import sys
 
 # --- Pattern Stitcher ---
@@ -15,22 +14,22 @@ def addright(page, right_page, tx=0):
 
 
 def main():
-    filename = sys.argv[1]
     print('## Pattern Stitcher ##')
-    pdf = PyPDF2.PdfFileReader(filename)
-    print("Number of Pages: %1.2i" % pdf.getNumPages())
+    with open(sys.argv[1], 'r') as input:
+        pdf = PyPDF2.PdfFileReader(input)
+        print("Number of Pages: %1.2i" % pdf.getNumPages())
 
-    a = pdf.getPage(5)
-    b = pdf.getPage(6)
-    print(a.mediaBox)
-    a.mergeTranslatedPage(b, a.mediaBox[2] - 50, 0, expand=True)
-    print(a.mediaBox)
+        output = PyPDF2.pdf.PageObject()
+        with open(sys.argv[2], 'r') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                for page in row:
+                    output = addright(output, pdf.getPage(int(page)))
 
-    output = PyPDF2.PdfFileWriter()
-    output.addPage(a)
-    out_file = open('bin/test/output.pdf', 'wb')
-    output.write(out_file)
-    out_file.close()
+        with open(sys.argv[3], 'wb') as out_file:
+            pdf_out = PyPDF2.PdfFileWriter()
+            pdf_out.addPage(output)
+            pdf_out.write(out_file)
     return
 
 if __name__ == "__main__":
