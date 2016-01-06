@@ -22,6 +22,7 @@ def main():
         first_page = True
         with open(sys.argv[2], 'r') as f:
             reader = csv.reader(f)
+            rows = []
             for row in reader:
                 for page in row:
                     if first_page is True:
@@ -29,6 +30,10 @@ def main():
                         first_page = False
                     else:
                         output = addright(output, pdf.getPage(int(page)))
+                rows.append(output)
+            output = rows[0]
+            for row in rows:
+                output.mergeTranslatedPage(row, 0, output.mediaBox[3], expand=True)
 
         with open(sys.argv[3], 'wb') as out_file:
             pdf_out = PyPDF2.PdfFileWriter()
