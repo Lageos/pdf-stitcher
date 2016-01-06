@@ -8,7 +8,7 @@ Different means to stitch sewing patterns (or any pdf file) delivered in single 
         install with `pip install PyPDF2`
 
 ## Usage
-`python pdf_stitcher.py input_file.pdf Pattern.csv output.pdf`
+`python pdf_stitcher.py input.pdf Pattern.csv output.pdf`
 
 With Pattern.csv decribing the placement of the pages (specified with the page
 number) in the output-file:
