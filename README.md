@@ -3,11 +3,9 @@
 Different means to stitch sewing patterns (or any pdf file) delivered in single sheets to a whole plan (file).
 
 ## Prerequisites
-* Python (tested with 2.7)
-* PyPDF2 with 
-        `pip install pypdf2`
-        ( https://pypi.python.org/pypi/PyPDF2/1.25.1 )
-
+* Python (tested with python 2.7.10 Anaconda 64-bit)
+* PyPDF2 (tested version 1.25.1, https://pypi.python.org/pypi/PyPDF2/1.25.1 )
+        install with `pip install pypdf2`
 
 ## Usage
 `python pdf_stitcher.py input_file.pdf positions.csv output.pdf`
