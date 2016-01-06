@@ -12,12 +12,6 @@ Different means to stitch sewing patterns (or any pdf file) delivered in single 
 
 With positions.csv decribing the placement of the pages (specified with the page
 number):
-```
-2, 3, 4, 5
-6, 7, 8, 9
-10, 11, 12, 13
-```
-
 ![pdf_stitcher flow](https://smidgeonpigeon.files.wordpress.com/2016/01/pdf_stitcher_flow1.png "pdf_stitcher flow")
 
 The easiest way to create this file is with a simple text editor.
