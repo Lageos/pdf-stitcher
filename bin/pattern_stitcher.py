@@ -38,14 +38,15 @@ def main():
 
             print("Stitching lines of pages ...")
             first_line = True
-            for row in rows:
+            for row in reversed(rows):
+                print('Row: ', row.mediaBox)
                 if first_line is True:
-                    output = rows[0]
-                    print(output.mediaBox)
+                    output = rows[-1]
+                    print('Output: ', output.mediaBox)
                     first_line = False
                 else:
-                    print(output.mediaBox)
-                    output.mergeTranslatedPage(row, ty, -output.mediaBox[3], expand=True)
+                    print('Output: ', output.mediaBox)
+                    output.mergeTranslatedPage(row, 0, output.mediaBox[3] + ty, expand=True)
 
         print("Saving new file...")
         with open(sys.argv[3], 'wb') as out_file:
