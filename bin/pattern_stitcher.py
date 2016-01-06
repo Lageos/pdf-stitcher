@@ -2,6 +2,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import print_function, division
 import PyPDF2
+# ºw
+# import csv
+import sys
 
 # --- Pattern Stitcher ---
 
@@ -12,10 +15,9 @@ def addright(page, right_page, tx=0):
 
 
 def main():
-    filename = 'bin/test/BM1004_102Schnitt.pdf'
+    filename = sys.argv[1]
     print('## Pattern Stitcher ##')
     pdf = PyPDF2.PdfFileReader(filename)
-    print(pdf.documentInfo)
     print("Number of Pages: %1.2i" % pdf.getNumPages())
 
     a = pdf.getPage(5)
