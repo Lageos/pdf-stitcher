@@ -15,16 +15,20 @@ def addright(page, right_page, tx=0):
 
 def main():
     print('## Pattern Stitcher ##')
-    with open(sys.argv[1], 'r') as input:
+    with open(sys.argv[1], 'rb') as input:
         pdf = PyPDF2.PdfFileReader(input)
         print("Number of Pages: %1.2i" % pdf.getNumPages())
 
-        output = PyPDF2.pdf.PageObject()
+        first_page = True
         with open(sys.argv[2], 'r') as f:
             reader = csv.reader(f)
             for row in reader:
                 for page in row:
-                    output = addright(output, pdf.getPage(int(page)))
+                    if first_page is True:
+                        output = pdf.getPage(int(page))
+                        first_page = False
+                    else:
+                        output = addright(output, pdf.getPage(int(page)))
 
         with open(sys.argv[3], 'wb') as out_file:
             pdf_out = PyPDF2.PdfFileWriter()
