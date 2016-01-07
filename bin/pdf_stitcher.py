@@ -15,7 +15,7 @@ def addright(page, right_page, tx=0):
 
 
 def main():
-    print('## Pattern Stitcher ##')
+    print('## PDF Stitcher ##')
     print('Version:', __version__)
     tx = 0
     ty = 0
